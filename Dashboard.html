@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fa-solid fa-chart-line text-primary me-2"></i> Visão Geral</h2>
+    <button class="btn btn-outline-primary btn-sm" onclick="carregarDadosDashboard()">
+      <i class="fa-solid fa-arrows-rotate me-1"></i> Atualizar Painel
+    </button>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card card-metric bg-primary text-white shadow-sm p-3">
+        <small class="text-white-50 text-uppercase fw-bold">Materiais Cadastrados</small>
+        <h2 class="mt-2 mb-0" id="dash-total-materiais">0</h2>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-metric bg-danger text-white shadow-sm p-3">
+        <small class="text-white-50 text-uppercase fw-bold">Itens Zerados</small>
+        <h2 class="mt-2 mb-0" id="dash-itens-zerados">0</h2>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-metric bg-warning text-dark shadow-sm p-3">
+        <small class="text-dark-50 text-uppercase fw-bold">Abaixo do Mínimo</small>
+        <h2 class="mt-2 mb-0" id="dash-itens-baixo">0</h2>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-metric bg-success text-white shadow-sm p-3">
+        <small class="text-white-50 text-uppercase fw-bold">Valor Total em Estoque</small>
+        <h2 class="mt-2 mb-0" id="dash-valor-total">R$ 0,00</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-0 p-4">
+        <h5 class="card-title mb-3 fw-bold text-secondary">Últimas Movimentações Processadas</h5>
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Data/Hora</th>
+                <th>Operação</th>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th class="text-center">Qtd</th>
+                <th>Usuário</th>
+              </tr>
+            </thead>
+            <tbody id="dash-tabela-historico">
+              <tr>
+                <td colspan="6" class="text-center text-muted py-3">Nenhuma movimentação listada.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

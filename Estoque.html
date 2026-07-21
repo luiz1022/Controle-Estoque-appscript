@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fa-solid fa-boxes-stacked text-primary me-2"></i> Catálogo e Inventário</h2>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMaterial">
+      <i class="fa-solid fa-plus me-1"></i> Novo Material
+    </button>
+  </div>
+
+  <div class="card shadow-sm border-0 p-3 mb-4">
+    <div class="input-group">
+      <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+      <input type="text" id="txt-pesquisa-estoque" class="form-control border-start-0" placeholder="Pesquisar por código ou descrição..." onkeyup="filtrarCatalogoEstoque()">
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 p-3">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th class="text-end">Qtd Ant.</th>
+            <th class="text-end">Qtd Atual</th>
+            <th class="text-end">Preço Un.</th>
+            <th class="text-end">Total</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-itens-estoque">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalMaterial" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Cadastrar Novo Insumo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="form-novo-material">
+          <div class="mb-3">
+            <label class="form-label">Código Único</label>
+            <input type="text" id="mat-codigo" class="form-control" required placeholder="Ex: MAT-1002">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descrição do Material</label>
+            <input type="text" id="mat-descricao" class="form-control" required placeholder="Ex: Cabo Flexível 4mm">
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Quantidade Inicial</label>
+              <input type="number" id="mat-quantidade" class="form-control" value="0" min="0">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Preço Unitário (R$)</label>
+              <input type="number" id="mat-preco" class="form-control" value="0.00" step="0.01" min="0">
+            </div>
+          </div>
+          <div class="text-end mt-3">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success">Salvar Item</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

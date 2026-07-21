@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h2 class="mb-4"><i class="fa-solid fa-right-left text-primary me-2"></i> Lançar Movimentação</h2>
+
+  <div class="row">
+    <div class="col-md-5 mb-4">
+      <div class="card shadow-sm border-0 p-4">
+        <h5 class="fw-bold mb-3 text-secondary">Entradas e Baixas</h5>
+        <form id="form-movimentacao" onsubmit="salvarMovimento(event)">
+          <div class="mb-3">
+            <label class="form-label">Tipo de Operação</label>
+            <select id="mov-tipo" class="form-select" required>
+              <option value="ENTRADA">ENTRADA (+)</option>
+              <option value="SAIDA">SAÍDA / BAIXA (-)</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Selecione o Material</label>
+            <select id="mov-codigo" class="form-select" required onchange="atualizarInfoSaldo()">
+              <option value="">Carregando materiais...</option>
+            </select>
+            <div id="mov-check-resultado" class="form-text mt-1 fw-bold"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Quantidade</label>
+            <input type="number" id="mov-quantidade" class="form-control" required min="1" value="1">
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Observação / Justificativa</label>
+            <textarea id="mov-obs" class="form-control" rows="3" placeholder="Ex: Reposição de estoque"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 fw-bold">Confirmar Operação</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div class="card bg-light border-0 p-4 shadow-sm">
+        <h5 class="fw-bold text-dark mb-2"><i class="fa-solid fa-circle-info text-info me-2"></i>Regras de Movimentação</h5>
+        <p class="text-muted small">Certifique-se de que os dados inseridos estão corretos antes de salvar:</p>
+        <ul class="text-muted small ps-3">
+          <li><strong>Entrada:</strong> Incrementa o saldo atual e arquiva o valor anterior na planilha para auditoria.</li>
+          <li><strong>Saída:</strong> Reduz do estoque atual. O sistema impede a operação caso o saldo fique negativo.</li>
+          <li><strong>Notificações:</strong> Saídas que resultem em quantitativos inferiores ao limite padrão disparam um alerta de e-mail ao administrador do setor.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
